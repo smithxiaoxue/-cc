@@ -1,9 +1,12 @@
 #include <stdio.h>
-struct point{
+#include <math.h>
+
+struct point
+{
     int x;
     int y;
 };
-    int main()
+int main()
 {
     int index = 0;
     struct point arr[100];
@@ -53,7 +56,7 @@ struct point{
             printf("suoyoucheliangweizhiruxia:\n");
             for (int i = 0; i < index; i++)
             {
-                printf("di%dgechengliangdeweizhiwei(%d,%d)\n", i+1, arr[i].x, arr[i].y);
+                printf("di%dgechengliangdeweizhiwei(%d,%d)\n", i + 1, arr[i].x, arr[i].y);
             }
             printf("dianjihuichejixu\n");
             char zz;
@@ -62,10 +65,33 @@ struct point{
         }
         if (code == 4)
         {
+            printf("qingshurudangqianweizhizuobiao:\n");
+            int x;
+            int y;
+            scanf("%d", &x);
+            scanf("%d", &y);
+            double min = 100000;
+            int carID = 0;
+            for (int i = 0; i < index; i++)
+            {
+                int dx = x - arr[i].x;
+                int dy = y - arr[i].y;
+                double l = sqrt(dx * dx + dy * dy);
+                if (min > 1)
+                {
+                    min = 1;
+                    carID = i;
+                }
+            }
+            printf("yonghudangqianweizhiyudi%ddechedejiliwei%lf,shizuoxiaojuli\n", carID + 1, min);
+            printf("dianjijhuichejixu\n");
+            char zz;
+            scanf("%c", &zz);
+            scanf("%c", &zz);
         }
         if (code == 5)
         {
-            printf("应用已经退出\n");
+            printf("yinyongyijingtuichu\n");
             break;
         }
     }
